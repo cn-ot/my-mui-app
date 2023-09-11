@@ -7,7 +7,7 @@ import Icon from '@mui/material/Icon'
 import PropTypes from 'prop-types'
 import {styled} from '@mui/system'
 import auth from './../auth/auth-helper'
-//import {Navigate} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 
 /* const useStyles = theme => makeStyles({
   card: {
@@ -77,7 +77,8 @@ class Signin extends Component {
   clickSubmit = () => {
     const user = {
       email: this.state.email || undefined,
-      password: this.state.password || undefined
+      password: this.state.password || undefined,
+      _id: 99
     }
 
     auth.authenticate(user, () => {
@@ -90,6 +91,15 @@ class Signin extends Component {
   }
 
   render() {
+
+  const from = {
+    pathname: '/'
+  }
+
+  const {redirectToReferrer} = this.state
+  if(redirectToReferrer) {
+    return(<Navigate to={from}/>)
+  }
 
   return (
       <ThemeProvider theme={theme}>
@@ -115,10 +125,6 @@ class Signin extends Component {
       </ThemeProvider>
     )
   }
-}
-
-Signin.propTypes = {
-  classes: PropTypes.object.isRequired
 }
 
 export default Signin
