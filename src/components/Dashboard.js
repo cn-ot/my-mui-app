@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {createTheme, ThemeProvider, CssBaseline } from '@mui/material'
 //import {makeStyles} from '@mui/material/styles'
-import {Typography, Card, CardContent, CardMedia} from '@mui/material'
-import {styled} from '@mui/system'
-import seashellImg from './../assets/images/seashell.jpg'
+import {Typography, Box} from '@mui/material'
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { mockDataContacts } from "./../data/mockData";
 
 const theme = createTheme({
   palette: {
@@ -12,35 +11,76 @@ const theme = createTheme({
   },
 });
 
-const StyledCard = styled(Card, {})({
-  maxWidth: 600,
-  margin: 'auto',
-  marginTop: theme.spacing.unit * 5
-});
-const StyledTitle = styled(Typography, {})({
-  padding:`${theme.spacing.unit * 3}px ${theme.spacing.unit * 2.5}px ${theme.spacing.unit * 2}px`,
-  color: theme.palette.text.secondary
-});
-const StyledMedia = styled(CardMedia, {})({
-  minHeight: 660
-});
 class Dashboard extends Component {
-
   render() {
+    const columns = [
+      { field: "id", headerName: "ID", flex: 0.5 },
+      { field: "registrarId", headerName: "Registrar ID" },
+      {
+        field: "name",
+        headerName: "Name",
+        flex: 1,
+        cellClassName: "name-column--cell",
+      },
+      {
+        field: "age",
+        headerName: "Age",
+        type: "number",
+        headerAlign: "left",
+        align: "left",
+      },
+      {
+        field: "phone",
+        headerName: "Phone Number",
+        flex: 1,
+      },
+      {
+        field: "email",
+        headerName: "Email",
+        flex: 1,
+      },
+      {
+        field: "address",
+        headerName: "Address",
+        flex: 1,
+      },
+      {
+        field: "city",
+        headerName: "City",
+        flex: 1,
+      },
+      {
+        field: "zipCode",
+        headerName: "Zip Code",
+        flex: 1,
+      },
+    ];
+
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline /* MUI Styles */ />
-        <StyledCard>
-          <StyledTitle type="headline" component="h2">
-            Home Page
-          </StyledTitle>
-          <StyledMedia image={seashellImg} title="Unicorn Shells"/>
-          <CardContent>
-            <Typography type="body1" component="p">
-              This will be the Dashboard Component
+        <Box m="20px" >
+          <Box mb="30px">
+            <Typography
+                variant="h3"
+                color="blue"
+                fontWeight="bold"
+                sx={{ m: "0 0 5px 0" }}
+            >
+                CONTACTS
             </Typography>
-          </CardContent>
-        </StyledCard>
+          </Box>
+          <Box
+              m="40px 0 0 0"
+              height="75vh"
+          >
+            <DataGrid
+                rows={mockDataContacts}
+                columns={columns}
+                components={{ Toolbar: GridToolbar }}
+            />
+          </Box>
+        </Box>
       </ThemeProvider>
     )
   }
