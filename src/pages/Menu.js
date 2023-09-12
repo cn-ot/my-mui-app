@@ -43,9 +43,6 @@ const Menu = withRouter(({history}) => (
             <HomeIcon/>
           </IconButton>
         </Link>
-        <Link to="/users">
-          <Button style={isActive(history, "/users")}>Users</Button>
-        </Link>
         {
           !auth.isAuthenticated() && (<span>
             <Link to="/signup">
@@ -60,6 +57,9 @@ const Menu = withRouter(({history}) => (
         }
         {
           auth.isAuthenticated() && (<span>
+            <Link to="/axios">
+              <Button style={isActive(history, "/axios")}>Axios Test</Button>
+            </Link>
             <Link to={"/user/" + auth.isAuthenticated()._id}>
               <Button style={isActive(history, "/user/" + auth.isAuthenticated()._id)}>My Profile</Button>
             </Link>

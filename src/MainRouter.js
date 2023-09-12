@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Home from './pages/Home'
 import Users from './user/Users'
+import AxiosTest from './pages/AxiosTest'
 import Signup from './user/Signup'
 import Signin from './auth/Signin'
 import EditProfile from './user/EditProfile'
@@ -23,6 +24,7 @@ class MainRouter extends Component {
       <Menu/>
       <Routes>
         <Route exact path="/" Component={Home}/>
+        <Route path="/axios" Component={AxiosTest}/>
         <Route path="/users" Component={Users}/>
         <Route path="/signup" Component={Signup}/>
         <Route path="/signin" Component={Signin}/>
