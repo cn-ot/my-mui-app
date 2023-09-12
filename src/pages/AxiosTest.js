@@ -50,3 +50,5 @@ function AxiosTest() {
       </div>
   );
 }
+
+export default AxiosTest
