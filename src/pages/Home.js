@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import auth from './../auth/auth-helper'
 import Welcome from './../components/Welcome'
 import Dashboard from './../components/Dashboard'
-import seashellImg from './../assets/images/seashell.jpg'
 
 /* const useStyles = theme => makeStyles({
   card: {

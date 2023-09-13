@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {createTheme, ThemeProvider, CssBaseline } from '@mui/material'
 //import {makeStyles} from '@mui/material/styles'
 import {Typography, Card, CardContent, CardMedia} from '@mui/material'

@@ -6,7 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from '@mui/material'
 import auth from './../auth/auth-helper'
 import {remove} from './api-user.js'
-import {Navigate, Link} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 
 class DeleteUser extends Component {
   state = {
