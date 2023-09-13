@@ -18,8 +18,8 @@ const isActive = (history, path) => {
 
 export const withRouter = (Component) =>{
     const Wrapper = (props) =>{
-        const history = useNavigate();
-        return <Component history={history} {...props}/>
+        const navigate = useNavigate();
+        return <Component history={navigate} {...props}/>
     } 
     return Wrapper;
 }
@@ -64,7 +64,7 @@ const Menu = withRouter(({history}) => (
               <Button style={isActive(history, "/user/" + auth.isAuthenticated()._id)}>My Profile</Button>
             </Link>
             <Button color="inherit" onClick={() => {
-                auth.signout(() => window.location.reload())
+                auth.signout(() => history('/'))
               }}>Sign out</Button>
           </span>)
         }

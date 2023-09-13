@@ -63,11 +63,11 @@ class Dashboard extends Component {
           <Box mb="30px">
             <Typography
                 variant="h3"
-                color="blue"
+                color="#1976d2"
                 fontWeight="bold"
                 sx={{ m: "0 0 5px 0" }}
             >
-                CONTACTS
+                MY CONTACTS
             </Typography>
           </Box>
           <Box

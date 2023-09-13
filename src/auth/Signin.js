@@ -62,7 +62,8 @@ const StyledTextField = styled(TextField, {})({
 const StyledSubmit = styled(Button, {})({
   margin: 'auto',
   marginBottom: theme.spacing.unit * 2,
-  backgroundColor: 'green'
+  backgroundColor: '#1976d2',
+  color: 'white'
 });
 
 class Signin extends Component {
